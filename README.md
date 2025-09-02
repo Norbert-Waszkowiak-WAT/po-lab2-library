@@ -7,7 +7,7 @@ Stwórz program, który zarządza kolekcją książek w bibliotece. Każda ksią
 1. **Klasa `Book`**:
     - Atrybuty: `title`, `author`, `isbn`.
     - Konstruktor do inicjalizacji atrybutów.
-    - Destruktor, który wyświetli komunikat o zniszczeniu obiektu (dla celów demonstracyjnych), brzmiący: Destroying book: <title>
+    - Destruktor `~Book()`, który wyświetli komunikat o zniszczeniu obiektu (dla celów demonstracyjnych), brzmiący: Destroying book: <title>
     - Gettery: `getTitle()`, `getAuthor()`, `getIsbn()` do uzyskiwania wartości atrybutów.
 
 2. **Klasa `Library`**:
