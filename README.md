@@ -22,7 +22,7 @@ Stwórz program, który zarządza kolekcją książek w bibliotece. Każda ksią
             - Aktualizuje wskaźnik do tablicy i liczbę książek.
             - Przypisuje atrybutowi `index` index ksiązki w tablicy. 
         - `removeBook(int index)`: usuwa książkę z kolekcji i zwalnia pamięć.
-            - Sprawdza, czy podany indeks jest prawidłowy.
+            - Sprawdza, czy podany indeks jest prawidłowy, w przypadku nieprawidłowego wyświetla komunikat: "Invalid index".
             - Usuwa książkę o podanym indeksie, zwalniając pamięć.
             - Przesuwa wskaźniki w tablicy, aby wypełnić lukę.
             - Zmniejsza liczbę książek.
@@ -30,7 +30,7 @@ Stwórz program, który zarządza kolekcją książek w bibliotece. Każda ksią
         - Destruktor `~Library()`: zwalnia całą pamięć zajmowaną przez tablicę książek.
             - Iteruje przez tablicę wskaźników i usuwa każdą książkę, zwalniając pamięć.
             - Zwalnia pamięć zajmowaną przez tablicę wskaźników.
-            - Wyświetla komunikat o zniszczeniu obiektu `Library`.
+            - Wyświetla komunikat o zniszczeniu obiektu `Library`, brzmiący: "Library destroyed".
 
 3. **Diagram klas**:
     - Klasa `Book` z atrybutami i metodami.
