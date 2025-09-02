@@ -70,7 +70,7 @@ int main() {
 
     for (int i = 0; i < library.getCount(); ++i) {
         Book* book = library.getBooks()[i];
-        std::cout << "Title: " << book->getTitle() << ", Author: " << book->getAuthor() << ", ISBN: " << book->getIsbn() << std::endl;
+        std::cout << "Title: " << book->getTitle() << ", Author: " << book->getAuthor() << ", ISBN: " << book->getIsbn() << ", Index: " << book->getIndex() << std::endl;
     }
     return 0;
 }
