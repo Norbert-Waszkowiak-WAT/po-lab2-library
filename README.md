@@ -5,10 +5,10 @@ Stwórz program, który zarządza kolekcją książek w bibliotece. Każda ksią
 
 #### Wymagania:
 1. **Klasa `Book`**:
-    - Atrybuty: `title`, `author`, `isbn`.
+    - Atrybuty: `title`, `author`, `isbn`, 'index'.
     - Konstruktor do inicjalizacji atrybutów.
     - Destruktor `~Book()`, który wyświetli komunikat o zniszczeniu obiektu (dla celów demonstracyjnych), brzmiący: Destroying book: <title>
-    - Gettery: `getTitle()`, `getAuthor()`, `getIsbn()` do uzyskiwania wartości atrybutów.
+    - Gettery: `getTitle()`, `getAuthor()`, `getIsbn()`, `getIndex()` do uzyskiwania wartości atrybutów.
 
 2. **Klasa `Library`**:
     - Atrybut: wskaźnik do tablicy wskaźników na obiekty `Book`.
@@ -20,6 +20,7 @@ Stwórz program, który zarządza kolekcją książek w bibliotece. Każda ksią
             - Dodaje nowy wskaźnik na końcu tablicy.
             - Zwalnia pamięć zajmowaną przez starą tablicę.
             - Aktualizuje wskaźnik do tablicy i liczbę książek.
+            - Przypisuje atrybutowi `index` index ksiązki w tablicy. 
         - `removeBook(int index)`: usuwa książkę z kolekcji i zwalnia pamięć.
             - Sprawdza, czy podany indeks jest prawidłowy.
             - Usuwa książkę o podanym indeksie, zwalniając pamięć.
@@ -43,13 +44,15 @@ Stwórz program, który zarządza kolekcją książek w bibliotece. Każda ksią
 +------------+                   +------------+
 | - title    |                   | - books[]  |
 | - author   |                   | - count    |
-| - isbn     |                   +------------+
+| - isbn     |
+| - index    |                   +------------+
 +------------+                   | +addBook() |
 | +Book()    |                   | +removeBook()|
 | +~Book()   |                   | +getBooks() |
 | +getTitle()|                   | +getCount() |
 | +getAuthor()|                   | +~Library()|
 | +getIsbn() |                   +------------+
+| +getIndex()|
 +------------+                   
 ```
 
