@@ -5,10 +5,10 @@ Stwórz program, który zarządza kolekcją książek w bibliotece. Każda ksią
 
 #### Wymagania:
 1. **Klasa `Book`**:
-    - Atrybuty: `title`, `author`, `isbn`.
+    - Atrybuty: `title`, `author`, `isbn`, 'index'.
     - Konstruktor do inicjalizacji atrybutów.
-    - Destruktor, który wyświetli komunikat o zniszczeniu obiektu (dla celów demonstracyjnych).
-    - Gettery: `getTitle()`, `getAuthor()`, `getIsbn()` do uzyskiwania wartości atrybutów.
+    - Destruktor `~Book()`, który wyświetli komunikat o zniszczeniu obiektu (dla celów demonstracyjnych), brzmiący: Destroying book: <title>
+    - Gettery: `getTitle()`, `getAuthor()`, `getIsbn()`, `getIndex()` do uzyskiwania wartości atrybutów.
 
 2. **Klasa `Library`**:
     - Atrybut: wskaźnik do tablicy wskaźników na obiekty `Book`.
@@ -20,8 +20,9 @@ Stwórz program, który zarządza kolekcją książek w bibliotece. Każda ksią
             - Dodaje nowy wskaźnik na końcu tablicy.
             - Zwalnia pamięć zajmowaną przez starą tablicę.
             - Aktualizuje wskaźnik do tablicy i liczbę książek.
+            - Przypisuje atrybutowi `index` index ksiązki w tablicy. 
         - `removeBook(int index)`: usuwa książkę z kolekcji i zwalnia pamięć.
-            - Sprawdza, czy podany indeks jest prawidłowy.
+            - Sprawdza, czy podany indeks jest prawidłowy, w przypadku nieprawidłowego wyświetla komunikat: "Invalid index".
             - Usuwa książkę o podanym indeksie, zwalniając pamięć.
             - Przesuwa wskaźniki w tablicy, aby wypełnić lukę.
             - Zmniejsza liczbę książek.
@@ -29,7 +30,7 @@ Stwórz program, który zarządza kolekcją książek w bibliotece. Każda ksią
         - Destruktor `~Library()`: zwalnia całą pamięć zajmowaną przez tablicę książek.
             - Iteruje przez tablicę wskaźników i usuwa każdą książkę, zwalniając pamięć.
             - Zwalnia pamięć zajmowaną przez tablicę wskaźników.
-            - Wyświetla komunikat o zniszczeniu obiektu `Library`.
+            - Wyświetla komunikat o zniszczeniu obiektu `Library`, brzmiący: "Library destroyed".
 
 3. **Diagram klas**:
     - Klasa `Book` z atrybutami i metodami.
@@ -43,13 +44,15 @@ Stwórz program, który zarządza kolekcją książek w bibliotece. Każda ksią
 +------------+                   +------------+
 | - title    |                   | - books[]  |
 | - author   |                   | - count    |
-| - isbn     |                   +------------+
+| - isbn     |
+| - index    |                   +------------+
 +------------+                   | +addBook() |
 | +Book()    |                   | +removeBook()|
 | +~Book()   |                   | +getBooks() |
 | +getTitle()|                   | +getCount() |
 | +getAuthor()|                   | +~Library()|
 | +getIsbn() |                   +------------+
+| +getIndex()|
 +------------+                   
 ```
 
@@ -67,7 +70,7 @@ int main() {
 
     for (int i = 0; i < library.getCount(); ++i) {
         Book* book = library.getBooks()[i];
-        std::cout << "Title: " << book->getTitle() << ", Author: " << book->getAuthor() << ", ISBN: " << book->getIsbn() << std::endl;
+        std::cout << "Title: " << book->getTitle() << ", Author: " << book->getAuthor() << ", ISBN: " << book->getIsbn() << ", Index: " << book->getIndex() << std::endl;
     }
     return 0;
 }
