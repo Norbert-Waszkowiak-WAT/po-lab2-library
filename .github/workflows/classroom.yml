@@ -1,0 +1,50 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: test_book
+      id: test_book
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: test_book
+        setup-command: ''
+        command: make test_book
+        timeout: 10
+        max-score: 34
+    - name: test_library
+      id: test_library
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: test_library
+        setup-command: ''
+        command: make test_library
+        timeout: 10
+        max-score: 34
+    - name: test_memory
+      id: test_memory
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: test_memory
+        setup-command: ''
+        command: make test_memory
+        timeout: 10
+        max-score: 32
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TEST_BOOK_RESULTS: "${{steps.test_book.outputs.result}}"
+        TEST_LIBRARY_RESULTS: "${{steps.test_library.outputs.result}}"
+        TEST_MEMORY_RESULTS: "${{steps.test_memory.outputs.result}}"
+      with:
+        runners: test_book,test_library,test_memory
