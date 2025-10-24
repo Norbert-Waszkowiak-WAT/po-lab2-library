@@ -36,22 +36,7 @@ Stwórz program, który zarządza kolekcją książek w bibliotece. Każda ksią
     - Klasa `Library` z atrybutami i metodami.
 
 ### Diagram klas:
-
-```
-+------------+                   +------------+
-|   Book     |                   |  Library   |
-+------------+                   +------------+
-| - title    |                   | - books[]  |
-| - author   |                   | - count    |
-| - isbn     |                   +------------+
-+------------+                   | +addBook() |
-| +Book()    |                   | +removeBook()|
-| +~Book()   |                   | +getBooks() |
-| +getTitle()|                   | +getCount() |
-| +getAuthor()|                   | +~Library()|
-| +getIsbn() |                   +------------+
-+------------+                   
-```
+![alt text](diagram.png)
 
 ### Przykład użycia:
 
