@@ -1,4 +1,4 @@
-### Zadanie: Zarządzanie Kolekcją Książek
+### Zadanie: Zarządzanie kolekcją książek
 
 #### Opis:
 Stwórz program, który zarządza kolekcją książek w bibliotece. Każda książka powinna mieć tytuł, autora i numer ISBN. Kolekcja książek powinna być przechowywana dynamicznie, a więc należy użyć operatorów `new` i `delete` do zarządzania pamięcią.
